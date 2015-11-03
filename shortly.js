@@ -2,6 +2,7 @@ var express = require('express');
 var util = require('./lib/utility');
 var partials = require('express-partials');
 var bodyParser = require('body-parser');
+var logger = require('./lib/logger')
 
 
 var db = require('./app/config');
@@ -15,6 +16,8 @@ var app = express();
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+
+app.use(logger);
 app.use(partials());
 // Parse JSON (uniform resource locators)
 app.use(bodyParser.json());
