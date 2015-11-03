@@ -106,15 +106,48 @@ function(req, res) {
   var username = req.body.username;
   var password = req.body.password;
 
-  new User();
-  //Maybe   
-    /*Users.create({
-      username: username,
-      password: password
-    })
-    .then(function() {}) 
-    */
-})
+  
+  Users.create({
+    username: username,
+    password: password
+  })
+  .then(function() {
+    res.redirect('/');
+  }); 
+    
+});
+
+app.post('/login',
+function(req, res) {
+  // read the request (username/password) 
+  // initate the database connection to users table
+  // check if username exists with supplied username
+    // if exists
+      // check if password matches
+        // if match
+          // redirect to (/)
+        // else
+          // respond with 'wrong password'
+    // if !exists
+      // respond with 'User does not exist'
+  var username = req.body.username;
+  var password = req.body.password;
+
+  new User({ username: username }).fetch().then(function (user) {
+    if (!user) {
+      res.redirect('/login');
+      //res.send(200, 'User does not exist');
+    } else {
+      if ( user.get('password') === password ) {
+        res.redirect('/');
+      } else {
+        //res.send(200, 'Wrong password');
+        res.redirect('/login');
+      }
+    }
+  });
+    
+});
 
 
 /************************************************************/
