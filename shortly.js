@@ -94,6 +94,27 @@ function(req, res) {
 // Write your authentication routes here
 /************************************************************/
 
+app.post('/signup',
+function(req, res) {
+  //read the request (username/password) 
+  //initiate database connection to users table
+  //write username and password to users table
+    //if successful 
+      //send 302 redirect to '/'
+    //if err
+      //send 404
+  var username = req.body.username;
+  var password = req.body.password;
+
+  new User();
+  //Maybe   
+    /*Users.create({
+      username: username,
+      password: password
+    })
+    .then(function() {}) 
+    */
+})
 
 
 /************************************************************/
