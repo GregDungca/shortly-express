@@ -40,6 +40,24 @@ function(req, res) {
   });
 });
 
+// path for /signup
+  // render template for signup
+app.get('/signup', 
+  function(req, res) {
+    console.log('in signup handler');
+    res.render('signup');
+  });
+
+
+
+// path for /login
+  // render template for login
+app.get('/login', 
+  function(req, res) {
+    res.render('login');
+  });
+
+
 app.post('/links', 
 function(req, res) {
   var uri = req.body.url;

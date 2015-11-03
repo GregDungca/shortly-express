@@ -31,6 +31,25 @@ window.Shortly = Backbone.View.extend({
     this.router.navigate('/create', { trigger: true });
   },
 
+  // //render signup view  
+  //   //prev default
+  //   //router navigate to signup
+
+  // renderSignUpView: function(e) {
+  //   e && e.preventDefault();
+  //   this.route.navigate('/signup', { trigger: true});
+  // },
+
+
+  // // render login view
+  //   // prev default
+  //   // router navigate to /login
+
+  // renderLoginView: function(e) {
+  //   e && e.preventDefault();
+  //   this.route.navigate('/login', { trigger: true});
+  // },
+
   updateNav: function(routeName){
     this.$el.find('.navigation li a')
       .removeClass('selected')
